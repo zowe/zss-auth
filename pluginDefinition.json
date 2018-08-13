@@ -1,0 +1,8 @@
+{
+  "identifier": "com.rs.auth.zssAuth",
+  "pluginType": "nodeAuthentication",
+  "authenticationCategory": "zss",
+  "apiVersion": "1.0.0",
+  "pluginVersion": "0.9.0",
+  "filename": "zssAuth.js"
+}
