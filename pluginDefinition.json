@@ -1,5 +1,5 @@
 {
-  "identifier": "com.rs.auth.zssAuth",
+  "identifier": "org.zowe.zlux.auth.zss",
   "pluginType": "nodeAuthentication",
   "authenticationCategory": "zss",
   "apiVersion": "1.0.0",
