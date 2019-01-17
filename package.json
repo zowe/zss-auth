@@ -12,6 +12,6 @@
   },
   "author": "Fyodor Kovin <fkovn@rocketsoftware.com>",
   "dependencies": {
-    "bluebird": "^3.5.2"
+    "bluebird": "~3.5.2"
   }
 }
