@@ -1,0 +1,17 @@
+{
+  "name": "zss-auth",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/zssAuth.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "build": "exit 0",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Fyodor Kovin <fkovn@rocketsoftware.com>",
+  "dependencies": {
+    "bluebird": "~3.5.2"
+  }
+}
