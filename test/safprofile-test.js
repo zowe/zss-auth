@@ -61,23 +61,27 @@ describe('makeProfileNameForRequest', function() {
     const profile1 = "ZLUX.DEFAULT.SVC.ORG_ZOWE_ZOSSYSTEM_SUBSYSTEMS.DATA.GET."
         + longStr1;
     const profile2 = profile1 + "." + longStr2;
-    const profile3 = "ZLUX.DEFAULT.SVC2.ORG_ZOWE_ZOSSYSTEM_SUBSYSTEMS.DATA.GET."
+    const profile3 = "ZLUX.DEFAULT.SVC.ORG_ZOWE_ZOSSYSTEM_SUBSYSTEMS.DATA.GET."
       + longStr1 + "." + longStr2;
     const profile4 = profile3;
     
     const result1 = makeProfileNameForRequest(url1, "GET", "DEFAULT");
+    console.log(result1, "result1.length", result1.length)
     assert(result1 === profile1);
     assert(result1.length <= safprofile.ZOWE_PROFILE_NAME_LEN);
     
     const result2 = makeProfileNameForRequest(url2, "GET", "DEFAULT");
+    console.log(result2, "result2.length", result2.length)
     assert(result2 === profile2)
     assert(result2.length <= safprofile.ZOWE_PROFILE_NAME_LEN);
     
     const result3 = makeProfileNameForRequest(url3, "GET", "DEFAULT");
+    console.log(result3, "result3.length", result3.length)
     assert(result3 === profile3)
     assert(result3.length <= safprofile.ZOWE_PROFILE_NAME_LEN);
     
     const result4 = makeProfileNameForRequest(url4, "GET", "DEFAULT");
+    console.log(result4, "result4.length", result4.length)
     assert(result4 === profile4)
     assert(result4.length <= safprofile.ZOWE_PROFILE_NAME_LEN);
   });
@@ -92,7 +96,7 @@ describe('makeProfileNameForRequest', function() {
     const profile1 = "ZLUX.DEFAULT.CFG.ORG_ZOWE_ZLUX_SAMPLE_ANGULAR.GET.USER"
         + longStr1;
     const profile2 = profile1 + "." + longStr2;
-    const profile3 = "ZLUX.DEFAULT.CFG2.ORG_ZOWE_ZLUX_SAMPLE_ANGULAR.GET.USER"
+    const profile3 = "ZLUX.DEFAULT.CFG.ORG_ZOWE_ZLUX_SAMPLE_ANGULAR.GET.USER"
       + longStr1 + "." + longStr2;
     const profile4 = profile3;
     
