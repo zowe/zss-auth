@@ -57,6 +57,10 @@ describe('makeProfileNameForRequest', function() {
     const url2 = url1 + "/" + longStr2;
     const url3 = url2 + "/" + longStr3;
     const url4 = url3 + "/" + longStr4;
+    const url5 = '/ZLUX/plugins/org.zowe.zlux.sample.angular/services/hello/'
+      + '_current/zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz'
+      + 'zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz'
+      + 'zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz'
     
     const profile1 = "ZLUX.DEFAULT.SVC.ORG_ZOWE_ZOSSYSTEM_SUBSYSTEMS.DATA.GET."
         + longStr1;
@@ -64,6 +68,8 @@ describe('makeProfileNameForRequest', function() {
     const profile3 = "ZLUX.DEFAULT.SVC.ORG_ZOWE_ZOSSYSTEM_SUBSYSTEMS.DATA.GET."
       + longStr1 + "." + longStr2;
     const profile4 = profile3;
+    const profile5 = "ZLUX.0.SVC.ORG_ZOWE_ZLUX_SAMPLE_ANGULAR.HELLO.POST";
+    
     
     const result1 = makeProfileNameForRequest(url1, "GET", "DEFAULT");
     console.log(result1, "result1.length", result1.length)
@@ -84,6 +90,11 @@ describe('makeProfileNameForRequest', function() {
     console.log(result4, "result4.length", result4.length)
     assert(result4 === profile4)
     assert(result4.length <= safprofile.ZOWE_PROFILE_NAME_LEN);
+    
+    const result5 = makeProfileNameForRequest(url5, "POST", "0");
+    console.log(result5, "result5.length", result5.length)
+    assert(result5 === profile5)
+    assert(result5.length <= safprofile.ZOWE_PROFILE_NAME_LEN);
   });
   
   it('should corectly generate config profiles with a long path', function() {
