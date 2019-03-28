@@ -8,9 +8,9 @@
   },
   "scripts": {
     "build": "exit 0",
-    "test": "echo \"Error: no test specified\" && exit 0"
+    "test":  "mocha --recursive --exit test"
   },
-  "author": "Fyodor Kovin <fkovn@rocketsoftware.com>",
+  "author": "Fyodor Kovin <fkovin@rocketsoftware.com>",
   "dependencies": {
     "bluebird": "~3.5.2"
   }
