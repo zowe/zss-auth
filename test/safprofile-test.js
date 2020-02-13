@@ -149,11 +149,6 @@ describe('makeProfileNameForRequest', function() {
     const result2 = makeProfileNameForRequest(url2, "GET", "DEFAULT");
     assert(profile2 === result2);
     
-    const url2 = "/ZLUX/plugins/org.zowe.zlux.echoService/services/hello/_current/special/jobs/J0006967/files";
-    const profile2 = "ZLUX.DEFAULT.SVC.ORG_ZOWE_ZLUX_ECHOSERVICE.HELLO.GET.SPECIAL.JOBS.J0006967.FILES";
-    
-
-
     const url3 = "/ZLUX/plugins/org.zowe.zlux.echoService/services/hello/_current/special/u:user";
     const profile3 = "ZLUX.DEFAULT.SVC.ORG_ZOWE_ZLUX_ECHOSERVICE.HELLO.GET.SPECIAL.U:USER";
     const result3 = makeProfileNameForRequest(url3, "GET", "DEFAULT");
