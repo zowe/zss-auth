@@ -154,6 +154,11 @@ describe('makeProfileNameForRequest', function() {
     const profile3 = "ZLUX.DEFAULT.SVC.ORG_ZOWE_ZLUX_ECHOSERVICE.HELLO.GET.SPECIAL.U:USER";
     const result3 = makeProfileNameForRequest(url3, "GET", "DEFAULT");
     assert(profile3 === result3);
+
+    const url4 = "/ZLUX/plugins/org.zowe.zlux.echoService/services/hello/_current/special/co.rs.tep.queryHandler:workspaceManager/level/3";
+    const profile4 = "ZLUX.DEFAULT.SVC.ORG_ZOWE_ZLUX_ECHOSERVICE.HELLO.GET.SPECIAL.CO.RS.TEP.QUERYHANDLER:WORKSPACEMANAGER.LEVEL.3";
+    const result4 = makeProfileNameForRequest(url4, "GET", "DEFAULT");
+    assert(profile4 === result4);
   });
 
   it('should correctly generate config profiles with malformed url', function() {
