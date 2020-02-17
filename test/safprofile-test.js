@@ -138,6 +138,44 @@ describe('makeProfileNameForRequest', function() {
     assert(result4.length <= safprofile.ZOWE_PROFILE_NAME_LEN);
   });
   
-  
-  
+  it('should correctly generate config profiles with special characters', function() {
+    const url1 = "/ZLUX/plugins/org.zowe.configjs/services/data/_current/org.zowe.zlux.ng2desktop/user/ui/launchbar/plugins?name=pinnedPlugins.json";
+    const profile1 = "ZLUX.DEFAULT.CFG.ORG_ZOWE_ZLUX_NG2DESKTOP.GET.USER.UI.LAUNCHBAR.PLUGINS?NAME=PINNEDPLUGINS.JSON";
+    const result1 = makeProfileNameForRequest(url1, "GET", "DEFAULT");
+    assert(profile1===result1);
+
+    const url2 = "/ZLUX/plugins/org.zowe.zlux.echoService/services/hello/_current/special/%2fu%2fuser";
+    const profile2 = "ZLUX.DEFAULT.SVC.ORG_ZOWE_ZLUX_ECHOSERVICE.HELLO.GET.SPECIAL.U.USER";
+    const result2 = makeProfileNameForRequest(url2, "GET", "DEFAULT");
+    console.log(result2);
+    assert(profile2 === result2);
+    
+    const url3 = "/ZLUX/plugins/org.zowe.zlux.echoService/services/hello/_current/special/u:user";
+    const profile3 = "ZLUX.DEFAULT.SVC.ORG_ZOWE_ZLUX_ECHOSERVICE.HELLO.GET.SPECIAL.U:USER";
+    const result3 = makeProfileNameForRequest(url3, "GET", "DEFAULT");
+    assert(profile3 === result3);
+
+    const url4 = "/ZLUX/plugins/org.zowe.zlux.echoService/services/hello/_current/special/co.rs.tep.queryHandler:workspaceManager/level/3";
+    const profile4 = "ZLUX.DEFAULT.SVC.ORG_ZOWE_ZLUX_ECHOSERVICE.HELLO.GET.SPECIAL.CO.RS.TEP.QUERYHANDLER:WORKSPACEMANAGER.LEVEL.3";
+    const result4 = makeProfileNameForRequest(url4, "GET", "DEFAULT");
+    assert(profile4 === result4);
+    
+    const url5 = "/ZLUX/plugins/org.zowe.zlux.echoService/services/hello/_current/special/co.rs.tep.queryHandler:workspaceManager/level/3/get?foo1=bar1&foo2=bar2";
+    const profile5 = "ZLUX.DEFAULT.SVC.ORG_ZOWE_ZLUX_ECHOSERVICE.HELLO.GET.SPECIAL.CO.RS.TEP.QUERYHANDLER:WORKSPACEMANAGER.LEVEL.3.GET?FOO1=BAR1&FOO2=BAR2";
+    const result5 = makeProfileNameForRequest(url5, "GET", "DEFAULT");
+    assert(profile5 === result5);
+
+  });
+
+  it('should correctly generate config profiles with malformed url', function() {
+    const url = "/ZLUX/plugins/org.zowe.zlux.echoService/services/hello/_current/special/%u%user";
+    const profile = "ZLUX.DEFAULT.SVC.ORG_ZOWE_ZLUX_ECHOSERVICE.HELLO.GET.SPECIAL.U.USER";
+    try {
+      makeProfileNameForRequest(url, "GET", "DEFAULT");
+      assert(false);
+    } catch(err) {
+      assert(true);
+    }
+  });
+
 });
