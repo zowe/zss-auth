@@ -48,7 +48,7 @@ jobs:
           key: ${{ runner.os }}-build-cache-node-modules-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-build-cache-node-modules-
-      - name: Install mocha
+      - name: 'Install mocha'
         run: npm install -g mocha
       
       - name: '[Prep 3] Setup Node'
