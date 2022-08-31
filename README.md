@@ -6,6 +6,8 @@ SPDX-License-Identifier: EPL-2.0
 
 Copyright Contributors to the Zowe Project.
 # zss-auth
+**This plugin is no longer used, please find its successor, `sso-auth`, within [zlux-server-framework](https://github.com/zowe/zlux-server-framework)**
+
 Auth handler for Zowe App Framework Server to connect to ZSS through standard ZSS login. See the [Auth web API](https://github.com/zowe/zlux/wiki/Authentication-with-ZLUX) and [Server config](https://github.com/zowe/zlux/wiki/Configuration-for-ZLUX-App-Server-&-ZSS) wiki pages for more info.
 
 **To request features or report bugs, please use the issues page at the [zlux repo](https://github.com/zowe/zlux/issues) with the server security tag**
