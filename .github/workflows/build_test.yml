@@ -26,7 +26,7 @@ jobs:
     steps:
       # this action will fail the whole workflow if permission check fails
       - name: check permission
-        uses: zowe-actions/shared-actions/permission-check@main
+        uses: zowe-actions/shared-actions/permission-check@77d7d9b50e60fedc8132b5e5eb6d611c4e483416 # main
         with:
           user: ${{ github.actor }}
           github-repo: ${{ github.repository }}
@@ -56,12 +56,12 @@ jobs:
           node-version: 10.24.1
 
       - name: '[Prep 4] Setup jFrog CLI'
-        uses: jfrog/setup-jfrog-cli@v2
+        uses: jfrog/setup-jfrog-cli@11ee3f9bb82595485cb55670e4f93885080e183b # v2
         env:
           JF_ARTIFACTORY_1: ${{ secrets.JF_ARTIFACTORY_TOKEN }}
 
       - name: '[Prep 5] prepare workflow'
-        uses: zowe-actions/zlux-builds/prepare-workflow@main
+        uses: zowe-actions/zlux-builds/prepare-workflow@20a844ff8f641e54efc91b3c9ef4ede08d513c36 # main
         with:
           github-user: ${{ secrets.ZOWE_ROBOT_USER }}
           github-password: ${{ secrets.ZOWE_ROBOT_TOKEN }}
@@ -69,16 +69,16 @@ jobs:
           github-branch: ${{ github.event.inputs.BRANCH_NAME }}
 
       - name: '[Prep 6] build'
-        uses: zowe-actions/zlux-builds/zlux-plugins@main
+        uses: zowe-actions/zlux-builds/zlux-plugins@20a844ff8f641e54efc91b3c9ef4ede08d513c36 # main
         with:
           build-zss: false
 
       - name: '[Prep 7] packaging'
-        uses: zowe-actions/zlux-builds/make-pax@main
+        uses: zowe-actions/zlux-builds/make-pax@20a844ff8f641e54efc91b3c9ef4ede08d513c36 # main
         with:
           pax-ssh-username: ${{ secrets.SSH_MARIST_USERNAME }}
           pax-ssh-password: ${{ secrets.SSH_MARIST_RACF_PASSWORD }}
           pax-name: zss-auth
 
       - name: '[Prep 8] deploy '
-        uses: zowe-actions/zlux-builds/deploy-pax@main
+        uses: zowe-actions/zlux-builds/deploy-pax@20a844ff8f641e54efc91b3c9ef4ede08d513c36 # main
